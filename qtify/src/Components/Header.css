@@ -10,5 +10,6 @@
 .feedbackButton{
   color: var(--color-primary) !important;
   background-color: var(--color-black) !important;
-  border-radius: 12px;
+  border-radius: 12px !important;
+  font-family: 'Poppins' !important;
 }
