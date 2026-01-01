@@ -1,0 +1,22 @@
+.custom_prev,
+.custom_next {
+  position: absolute;
+  box-sizing: border-box;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  top: 37%;
+  padding-top: 3px;
+  cursor: pointer;
+  z-index: 99;
+}
+.custom_prev {
+  left: -15px;
+  padding-left: 3px;
+}
+.custom_next {
+  right: -15px;
+  padding-left: 4px;
+}

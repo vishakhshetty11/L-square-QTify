@@ -1,18 +1,13 @@
 import "./App.css";
+import {Outlet } from "react-router-dom";
 import Header from "./Components/Header";
-import Hero from "./Components/Hero";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { StyledEngineProvider } from "@mui/material";
 function App() {
   return (
-    <BrowserRouter>
+    <StyledEngineProvider injectFirst>
       <Header />
-      <Hero />
-      <div className="App">
-        <Routes>
-          <Route></Route>
-        </Routes>
-      </div>
-    </BrowserRouter>
+      <Outlet />
+    </StyledEngineProvider>
   );
 }
 
