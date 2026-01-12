@@ -1,14 +1,17 @@
-.section{
-    margin: 10px 15px 10px 15px;
+.section {
+  margin: 10px 15px 10px 15px;
 }
-.sectionHeader{
-    color: var(--color-white);
-    text-align: left;
-    margin-bottom: 10px !important;
+.sectionHeader {
+  color: var(--color-white);
+  text-align: left;
+  margin-bottom: 10px !important;
 }
-.sectionButton{
-    color: var(--color-primary);
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: none;
+.sectionButton {
+  color: var(--color-primary);
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: none;
+}
+.tabBoxParent {
+  margin-bottom: 15px !important;
 }

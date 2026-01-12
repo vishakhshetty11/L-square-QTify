@@ -7,7 +7,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Box, Chip } from "@mui/material";
 import styles from "./SongCard.module.css"
-function SongCard({ album }) {
+import { truncate } from "../helpers/helpers";
+function SongCard({ album, type }) {
     return (
         <Box className={styles.outerCard}>
             <Card className={styles.card}>
@@ -16,11 +17,11 @@ function SongCard({ album }) {
                     title={album.title}
                 />
                 <CardContent className={styles.cardContent}>
-                    <Chip sx={{ padding: 0 }} className={styles.chip} label={album.follows + " Follows"} />
+                    <Chip sx={{ padding: 0 }} className={styles.chip} label={ type==="song" ? album.likes + " Likes" : album.follows + " Follows"} />
                 </CardContent>
             </Card>
             <Typography className={styles.outerCardContent}>
-                {album.title}
+                {truncate(album.title)}
             </Typography>
         </Box>
     );

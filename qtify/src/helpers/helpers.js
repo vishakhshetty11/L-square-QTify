@@ -1,4 +1,4 @@
-export function truncate(input, length = 5) {
+export function truncate(input, length = 21) {
   if (input.length > length) {
     return input.substring(0, length) + "...";
   }

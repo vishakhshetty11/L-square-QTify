@@ -9,7 +9,10 @@ function Home() {
     const [topAlbum, setTopAlbum] = useState([]);
     const [topAlbumLoader, setTopAlbumLoader] = useState(false);    
     const [newAlbum, setNewAlbum] = useState([]);
-    const [newAlbumLoader, setNewAlbumLoader] = useState(false);
+    const [newAlbumLoader, setNewAlbumLoader] = useState(false);  
+    const [songs, setSongs] = useState([]);
+    const [songLoader, setSongLoader] = useState(false);
+    const [filterData, setFilterData] = useState([]);
     const getTopAlbum = async () => {
         try {
             setTopAlbumLoader(true);
@@ -36,9 +39,34 @@ function Home() {
             setNewAlbumLoader(false);
         }
     }
+    
+    const getSongs = async () => {
+        try {
+            setSongLoader(true);
+            const resp = await axios.get(`https://qtify-backend.labs.crio.do/songs`);
+            setSongs(resp.data);
+        }
+        catch (e) {
+            console.log(e.response);
+        }
+        finally {
+            setSongLoader(false);
+        }
+    }
+    const getFilters = async () => {
+        try {
+            const resp = await axios.get(`https://qtify-backend.labs.crio.do/genres`);
+            setFilterData(resp.data.data);
+        }
+        catch (e) {
+            console.log(e.response);
+        }
+    }
     useEffect(() => {
         getTopAlbum();
         getNewAlbum();
+        getSongs();
+        getFilters();
     }, [])
     return (
         <div>
@@ -48,6 +76,9 @@ function Home() {
             </Box>
             <Box m={2}>
                 <Section title="New Albums" topAlbum={newAlbum} />
+            </Box>
+            <Box m={2}>
+                <Section title="Songs" topAlbum={songs} showFilter={true} filters={filterData} type="song" />
             </Box>
         </div>
     )

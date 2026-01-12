@@ -3,11 +3,11 @@ import SongCard from "./SongCard";
 import styles from "./GridView.module.css"
 import { Stack } from "@mui/material";
 import axios from "axios";
-export default function GridView({ data }) {
+export default function GridView({ data, type }) {
     return (
         <Stack direction="row" sx={{flexWrap:"wrap", gap:"1.2%"}} justifyContent="start">
             {data.map(item => (
-                    <SongCard album={item} key={item.id} />
+                    <SongCard album={item} key={item.id} type={type} />
                 ))}
         </Stack>
     )

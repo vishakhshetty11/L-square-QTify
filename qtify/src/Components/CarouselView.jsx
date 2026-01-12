@@ -7,7 +7,7 @@ import SongCard from "./SongCard";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import styles from "./CarouselView.module.css"
-export default function CarouselView({ data }) {
+export default function CarouselView({ data, type }) {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     return (
@@ -29,13 +29,10 @@ export default function CarouselView({ data }) {
                 }}
                 navigation
                 spaceBetween={30}
-                slidesPerView={7}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-            >
+                slidesPerView={7}>
                 {data.map(item => (
-                    <SwiperSlide>
-                        <SongCard album={item} key={item.id} />
+                    <SwiperSlide key={item.id}>
+                        <SongCard album={item} key={item.id} type={type} />
                     </SwiperSlide>
                 ))}
             </Swiper>
