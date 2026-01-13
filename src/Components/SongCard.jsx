@@ -21,7 +21,8 @@ function SongCard({ album, type }) {
                 </CardContent>
             </Card>
             <Typography className={styles.outerCardContent}>
-                {truncate(album.title)}
+                {/* {truncate(album.title)} */}
+                {album.title}
             </Typography>
         </Box>
     );
